@@ -28,9 +28,6 @@ class MainBox extends React.Component {
     };
 
     setData = (response) => {
-
-        // console.log(response);
-
         const data = {
                 name: response.city.name,
                 temp: response.list[0].temp.day,
@@ -51,30 +48,6 @@ class MainBox extends React.Component {
         this.setState({data});
 
     };
-
-    // this.setState({ ...this.state, data: { ...this.state.data, name:name } })
-
-    // const cars = [...this.state.cars];
-    // cars[index].name = name;
-    // this.setState({cars});
-    //
-
-    //
-    //     // {(event: { target: { value } }) => this.setState({input: value})}
-    //
-    //     this.state.data.name: data['city']['name'],
-    //         tempTown
-    // :
-    //     data['list'][0]['temp']['day'],
-    //         descTown
-    // :
-    //     data['list'][0]['weather'][0]['main'],
-    //         sunriseTown
-    // :
-    //     data['list'][0]['sunrise'],
-    //         sunsetTown
-    // :
-    //     data['list'][0]['sunset'],
 
 
     requestWeather = (nameTown) => {

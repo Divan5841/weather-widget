@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="98e977f3-126b-41d9-927f-b6d9f48ad1d8" name="Default Changelist" comment="" />
+    <list default="true" id="98e977f3-126b-41d9-927f-b6d9f48ad1d8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/MainBox.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/MainBox.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +19,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PATH_TO_GIT" value="C:\Program Files\Git\bin\git.exe" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1XZTY6aB8qkO0Z2pNnLkOKnKJnn" />
@@ -37,7 +41,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2019.3.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
@@ -78,26 +82,44 @@
       <workItem from="1581252666438" duration="1238000" />
       <workItem from="1581279009455" duration="55382000" />
       <workItem from="1581456696373" duration="543000" />
-      <workItem from="1581457296048" duration="486000" />
+      <workItem from="1581457296048" duration="1609000" />
+      <workItem from="1581458942536" duration="111000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
     <state x="469" y="187" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581279308324">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="469" y="187" key="#com.intellij.fileTypes.FileTypeChooser/62.0.1304.768@62.0.1304.768" timestamp="1581279308324" />
+    <state x="468" y="254" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1581458906176">
+      <screen x="62" y="0" width="1304" height="768" />
+    </state>
+    <state x="468" y="254" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/62.0.1304.768@62.0.1304.768" timestamp="1581458906176" />
     <state x="444" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581279041487">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state x="444" y="131" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/62.0.1304.768@62.0.1304.768" timestamp="1581279041487" />
-    <state x="434" y="139" key="FileChooserDialogImpl" timestamp="1581457780229">
+    <state x="434" y="139" key="FileChooserDialogImpl" timestamp="1581458876590">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state x="434" y="139" key="FileChooserDialogImpl/62.0.1304.768@62.0.1304.768" timestamp="1581457780229" />
+    <state x="434" y="139" key="FileChooserDialogImpl/62.0.1304.768@62.0.1304.768" timestamp="1581458876590" />
     <state width="1283" height="192" key="GridCell.Tab.0.bottom" timestamp="1581453028908">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
@@ -114,10 +136,14 @@
       <screen x="62" y="0" width="1304" height="768" />
     </state>
     <state width="1283" height="192" key="GridCell.Tab.0.right/62.0.1304.768@62.0.1304.768" timestamp="1581453028907" />
-    <state x="92" y="0" width="1125" height="768" key="SettingsEditor" timestamp="1581457785018">
+    <state x="92" y="0" width="1125" height="768" key="SettingsEditor" timestamp="1581457954581">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
-    <state x="92" y="0" width="1125" height="768" key="SettingsEditor/62.0.1304.768@62.0.1304.768" timestamp="1581457785018" />
+    <state x="92" y="0" width="1125" height="768" key="SettingsEditor/62.0.1304.768@62.0.1304.768" timestamp="1581457954581" />
+    <state x="306" y="117" key="Vcs.Push.Dialog.v2" timestamp="1581458467080">
+      <screen x="62" y="0" width="1304" height="768" />
+    </state>
+    <state x="306" y="117" key="Vcs.Push.Dialog.v2/62.0.1304.768@62.0.1304.768" timestamp="1581458467080" />
     <state x="370" y="172" key="run.anything.popup" timestamp="1581339177644">
       <screen x="62" y="0" width="1304" height="768" />
     </state>
