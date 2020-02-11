@@ -1,0 +1,4 @@
+.infoWeek {
+    flex-grow: 0.4;
+    animation: displayBox 1s linear forwards;
+}

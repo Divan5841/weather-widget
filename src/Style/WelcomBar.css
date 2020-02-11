@@ -1,0 +1,48 @@
+.WelcomBar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    padding: 10px;
+    background: var(--gray-light);
+
+    box-shadow: 5px 5px 15px 0 var(--gray-dark);
+    cursor: pointer;
+}
+
+.imgSunBox {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--gray-dark);
+    transition: 3s ease;
+}
+
+.imgSunBox:hover {
+    background: var(--yellow-sun);
+}
+
+img[alt='sun'] {
+    height: 100%;
+    transition: 3s ease;
+}
+
+img[alt='sun']:hover {
+    transform: rotate(360deg);
+}
+
+.WelcomBarAmin {
+    animation: expansionBar 0.5s linear forwards;
+}
+
+@keyframes expansionBar {
+    0% {
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 var(--gray-dark);
+        background: var(--gray-main);
+        opacity: 0;
+
+    }
+
+}

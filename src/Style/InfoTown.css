@@ -1,0 +1,6 @@
+.infoTown {
+    flex-grow: 0.6;
+    margin-right: 10px;
+    animation: displayBox 1s linear forwards;
+}
+
