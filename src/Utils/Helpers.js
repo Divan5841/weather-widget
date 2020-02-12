@@ -1,23 +1,17 @@
-function getClock(gotSec) {
-    const time = new Date(gotSec * 1000);
-    return (`${time.getHours()}:${time.getMinutes()}`)
-}
-
-function getDay(gotSec) {
-    const daysWeek = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
-    const time = new Date(gotSec * 1000);
-    return (`${daysWeek[time.getDay()]}`);
-}
-
-function convertKelvinToCelsius(kelvin) {
+export const convertKelvinToCelsius = (kelvin) => {
     if (kelvin < (0)) {
         return 'below absolute zero (0 K)';
     } else {
-        return (kelvin - 273.15);
+        return (Math.round(kelvin - 273.15));
     }
-}
+};
 
-function translateDesc(desc) {
+export const convertToClock = (gotSec) => {
+    const time = new Date(gotSec * 1000);
+    return (`${time.getHours()}:${time.getMinutes()}`)
+};
+
+export const translateDesc = (desc) => {
     const descRu = {
         'clear': 'Чистое небо',
         'few clouds': 'Мало облаков',
@@ -28,9 +22,21 @@ function translateDesc(desc) {
         'thunderstorm': 'Гроза',
         'snow': 'Снег',
         'mist': 'Туман',
+        'clouds': 'Облачно',
     };
     if (descRu[desc.toLowerCase()] !== undefined)
         return descRu[desc.toLowerCase()];
     else
         return desc
-}
+};
+
+
+// function getDay(gotSec) {
+//     const daysWeek = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
+//     const time = new Date(gotSec * 1000);
+//     return (`${daysWeek[time.getDay()]}`);
+// }
+//
+//
+//
+

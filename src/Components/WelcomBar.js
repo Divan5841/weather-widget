@@ -4,6 +4,7 @@ import sunRevers from '../Img/sunRevers.png';
 
 export const WelcomBar = (props) => {
 
+
     return (
         <div className={props.welcomBarClasses.join(' ')}
              onClick={props.onChangeBar}>

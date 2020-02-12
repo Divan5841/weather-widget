@@ -2,7 +2,9 @@
     --yellow-sun: #ffca00;
     --gray-main: #f8f9fb;
     --gray-dark: #2c3437;
-    --gray-light: #b1b4bd;
+    /*--gray-light: #b1b4bd;*/
+    --gray-light: #dcdbe1;
+    /*--gray-light: #f3f5f4;*/
     --red: #c42034;
 }
 
@@ -40,6 +42,6 @@ body {
     }
     100% {
         opacity: 1;
-        box-shadow: 3px 3px 10px 0 var(--gray-dark);
+        box-shadow: 4px 4px 5px 0 var(--gray-dark);
     }
 }

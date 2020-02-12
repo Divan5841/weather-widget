@@ -42,7 +42,6 @@ img[alt='sun']:hover {
         box-shadow: 0 0 0 0 var(--gray-dark);
         background: var(--gray-main);
         opacity: 0;
-
     }
 
 }
