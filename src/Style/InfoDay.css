@@ -1,0 +1,22 @@
+.containerDay {
+    width: 100%;
+    padding: 0 5px;
+    font-size: 14px;
+    font-weight: 500;
+    border-left: var(--gray-dark) 1px solid;
+}
+
+.containerDay :first-child {
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/*.containerDay > div{*/
+/*    width: 100%;*/
+/*    text-align: center;*/
+/*}*/
+
+img[alt='img'] {
+    margin: 0 auto;
+}

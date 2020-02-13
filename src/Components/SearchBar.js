@@ -15,7 +15,7 @@ class SearchBar extends React.Component {
 
     render() {
         return (
-            <div className='SearchBar mainStyle'>
+            <div className='SearchBar'>
                 <input type="text" placeholder='ПОИСК' className='SearchInput'
                 onChange={(event) => this.setState({input: event.target.value})}
                 onKeyUp={(event) => this.pressEnterInput(event.key)}

@@ -1,4 +1,10 @@
 .infoWeek {
+    display: flex;
     animation: displayBox 1s linear forwards;
 }
+
+.infoWeek :first-child {
+    border-left: none;
+}
+
 

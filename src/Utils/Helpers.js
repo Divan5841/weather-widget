@@ -6,9 +6,13 @@ export const convertKelvinToCelsius = (kelvin) => {
     }
 };
 
-export const convertToClock = (gotSec) => {
+export const convertToTime = (gotSec) => {
     const time = new Date(gotSec * 1000);
-    return (`${time.getHours()}:${time.getMinutes()}`)
+    if (time.getMinutes() < 9) {
+        return (`${time.getHours()}:0${time.getMinutes()}`)
+    } else {
+        return (`${time.getHours()}:${time.getMinutes()}`)
+    }
 };
 
 export const translateDesc = (desc) => {
@@ -30,13 +34,15 @@ export const translateDesc = (desc) => {
         return desc
 };
 
+export const convertToDay = (gotSec) => {
+    const daysWeek = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
+    const time = new Date(gotSec * 1000);
+    return (`${daysWeek[time.getDay()]}`);
+};
 
-// function getDay(gotSec) {
-//     const daysWeek = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
-//     const time = new Date(gotSec * 1000);
-//     return (`${daysWeek[time.getDay()]}`);
-// }
-//
-//
-//
+export const convertToUrlImg = (img) => {
+    return (`http://openweathermap.org/img/w/${img}.png`)
+};
+
+
 

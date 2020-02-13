@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Style/InfoTown.css';
-import {convertToClock, convertKelvinToCelsius, translateDesc} from "../Utils/Helpers";
+import {convertToTime, convertKelvinToCelsius, translateDesc} from "../Utils/Helpers";
 
 export const InfoTown = (props) => (
     <div className='infoTown mainStyle'>
@@ -10,8 +10,8 @@ export const InfoTown = (props) => (
         </div>
         <div className="containerInfo">
             <p>{translateDesc(props.data.desc)}</p>
-            <p>восход: {convertToClock(props.data.sunrise)}</p>
-            <p>закат: {convertToClock(props.data.sunset)}</p>
+            <p>восход: {convertToTime(props.data.sunrise)}</p>
+            <p>закат: {convertToTime(props.data.sunset)}</p>
         </div>
     </div>
 );
