@@ -9,19 +9,19 @@ class SearchBar extends React.Component {
 
     pressEnterInput = (key) => {
         if (key === 'Enter') {
-            this.props.requestWeather(this.state.input);
+            this.props.simpleRequest(this.state.input);
         }
     };
 
     render() {
         return (
             <div className='SearchBar'>
-                <input type="text" placeholder='ПОИСК' className='SearchInput'
-                onChange={(event) => this.setState({input: event.target.value})}
-                onKeyUp={(event) => this.pressEnterInput(event.key)}
+                <input type="text" placeholder='введите название города' className='SearchInput'
+                       onChange={(event) => this.setState({input: event.target.value})}
+                       onKeyUp={(event) => this.pressEnterInput(event.key)}
                 />
                 <div className='imgSearchBox'
-                     onClick={() => this.props.requestWeather(this.state.input)}>
+                     onClick={() => this.props.simpleRequest(this.state.input)}>
                     <img src={searchGray} alt="search"/>
                 </div>
             </div>

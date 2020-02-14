@@ -12,13 +12,13 @@ class MainBox extends React.Component {
             url: 'https://api.openweathermap.org/data/2.5/forecast/daily',
             key: 'dc963d586e747302682e9144d2ec250c',
         },
+        // nameTown: '',
         showWelcomBar: true,
         showLoader: false,
         showErrorBox: false,
         showInfoBox: false,
         errorMessage: '',
         controller: new AbortController(),
-        welcomBarClasses: ['WelcomBar'],
     };
 
 
@@ -40,30 +40,29 @@ class MainBox extends React.Component {
         this.setState({data});
     };
 
-    requestWeather = (nameTown) => {
-        if (nameTown === '')
-            this.displayError('Вы не ввели название города');
-        else {
-            this.setState({showLoader: true});
-            fetch(`${this.state.request.url}?` + new URLSearchParams({
-                q: nameTown,
-                mode: 'json',
-                appid: this.state.request.key,
-            }), {signal: this.state.controller.signal})
-                .then(response => response.json())
-                .then(data => {
-                    this.setState({showLoader: false});
-                    this.setData(data);
-                    this.setState({showInfoBox: true});
-                })
-                .catch(error => {
-                    if (error.name === 'AbortError')
-                        this.displayError('Поиск отменен');
-                    else if (error.name === 'TypeError')
-                        this.displayError(`Город ${nameTown} не найден`);
-                    else
-                        throw error;
-                })
+    requestWeather = () => {
+        this.setState({showLoader: true});
+        fetch(`${this.state.request.url}?` + this.state.urlParams, {signal: this.state.controller.signal})
+            .then(response => response.json())
+            .then(data => {
+                this.setData(data);
+                this.setState({showLoader: false, showInfoBox: true});
+            })
+            .catch(error => {
+                this.setState({showLoader: false});
+                if (error.name === 'AbortError')
+                    this.displayError('Поиск отменен');
+                else if (error.name === 'TypeError')
+                    this.displayError(`Город ${this.state.nameTown} не найден`);
+                else
+                    throw error;
+            })
+    };
+
+    pressEscape = (event) => {
+        if (event.key === 'Escape') {
+            // this.abortRequest();
+            this.hideError(); //при abort, сразу закрывает окно с ошибкой...
         }
     };
 
@@ -80,14 +79,45 @@ class MainBox extends React.Component {
         this.setState({showErrorBox: !this.state.showErrorBox});
     };
 
+    startGeoRequest = (pos) => {
+        this.setState({
+            urlParams: new URLSearchParams({
+                lat: pos.coords.latitude,
+                lon: pos.coords.longitude,
+                mode: 'json',
+                appid: this.state.request.key,
+            })
+        }, () => this.requestWeather());
+    };
+
+    simpleRequest = (nameTown) => {
+        if (nameTown === '') {
+            this.displayError('Вы не ввели название города');
+        } else {
+
+            this.setState({
+                urlParams: new URLSearchParams({
+                    q: nameTown,
+                    mode: 'json',
+                    appid: this.state.request.key,
+                }), nameTown
+            }, () => this.requestWeather());
+        }
+    };
+
+    componentDidMount() {
+        navigator.geolocation.getCurrentPosition(this.startGeoRequest);
+        document.addEventListener("keyup", this.pressEscape, false);
+    };
+
     render() {
         return (
             <div className='mainBox'>
                 {this.state.showWelcomBar ?
                     <WelcomBar
-                        welcomBarClasses={this.state.welcomBarClasses}
-                        onChangeBar={this.onChangeBar}
-                    /> : <>
+                        hideWelcomBar={() => this.setState({showWelcomBar: !this.state.showWelcomBar})}
+                    /> :
+                    <>
                         {this.state.showLoader ?
                             <Loader
                                 abortRequest={this.abortRequest}
@@ -98,7 +128,7 @@ class MainBox extends React.Component {
                                     hideError={this.hideError}
                                 /> :
                                 <SearchBar
-                                    requestWeather={this.requestWeather}
+                                    simpleRequest={this.simpleRequest}
                                 />}
                         {this.state.showInfoBox ?
                             <InfoBox data={this.state.data}
@@ -110,10 +140,6 @@ class MainBox extends React.Component {
         )
     }
 
-    onChangeBar = () => {
-        this.setState({welcomBarClasses: ['WelcomBar', 'WelcomBarAmin']});
-        setTimeout(() => (this.setState({showWelcomBar: !this.state.showWelcomBar})), 500);
-    };
 }
 
 export default MainBox;
