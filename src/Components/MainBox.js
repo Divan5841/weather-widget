@@ -53,7 +53,7 @@ class MainBox extends React.Component {
                 if (error.name === 'AbortError')
                     this.displayError('Поиск отменен');
                 else if (error.name === 'TypeError')
-                    this.displayError(`Город ${this.state.nameTown} не найден`);
+                    this.displayError(`Город не найден`);
                 else
                     throw error;
             })
