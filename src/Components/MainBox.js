@@ -61,8 +61,7 @@ class MainBox extends React.Component {
 
     pressEscape = (event) => {
         if (event.key === 'Escape') {
-            // this.abortRequest();
-            this.hideError(); //при abort, сразу закрывает окно с ошибкой...
+            this.hideError();
         }
     };
 
