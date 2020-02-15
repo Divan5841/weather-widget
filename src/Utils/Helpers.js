@@ -44,5 +44,12 @@ export const convertToUrlImg = (img) => {
     return (`http://openweathermap.org/img/w/${img}.png`)
 };
 
+export const checkLengthTown = (nameTown) => {
+    if (nameTown.length < 15) {
+        return nameTown
+    } else {
+        return ''
+    }
+};
 
 

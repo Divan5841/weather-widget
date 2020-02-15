@@ -5,6 +5,7 @@ import {WelcomBar} from './WelcomBar';
 import SearchBar from "./SearchBar";
 import {Loader} from './Loader';
 import {Error} from "./Error";
+import {checkLengthTown} from '../Utils/Helpers';
 
 class MainBox extends React.Component {
     state = {
@@ -12,7 +13,6 @@ class MainBox extends React.Component {
             url: 'https://api.openweathermap.org/data/2.5/forecast/daily',
             key: 'dc963d586e747302682e9144d2ec250c',
         },
-        // nameTown: '',
         showWelcomBar: true,
         showLoader: false,
         showErrorBox: false,
@@ -20,7 +20,6 @@ class MainBox extends React.Component {
         errorMessage: '',
         controller: new AbortController(),
     };
-
 
     setData = (response) => {
         const data = {
@@ -53,7 +52,7 @@ class MainBox extends React.Component {
                 if (error.name === 'AbortError')
                     this.displayError('Поиск отменен');
                 else if (error.name === 'TypeError')
-                    this.displayError(`Город не найден`);
+                    this.displayError(`Город ${checkLengthTown(this.state.nameTown)} не найден`);
                 else
                     throw error;
             })
@@ -71,11 +70,11 @@ class MainBox extends React.Component {
     };
 
     displayError = (errorMessage) => {
-        this.setState({errorMessage, showErrorBox: !this.state.showErrorBox});
+        this.setState({errorMessage, showErrorBox: true});
     };
 
     hideError = () => {
-        this.setState({showErrorBox: !this.state.showErrorBox});
+        this.setState({showErrorBox: false});
     };
 
     startGeoRequest = (pos) => {
@@ -93,7 +92,6 @@ class MainBox extends React.Component {
         if (nameTown === '') {
             this.displayError('Вы не ввели название города');
         } else {
-
             this.setState({
                 urlParams: new URLSearchParams({
                     q: nameTown,
@@ -114,7 +112,7 @@ class MainBox extends React.Component {
             <div className='mainBox'>
                 {this.state.showWelcomBar ?
                     <WelcomBar
-                        hideWelcomBar={() => this.setState({showWelcomBar: !this.state.showWelcomBar})}
+                        hideWelcomBar={() => this.setState({showWelcomBar: false})}
                     /> :
                     <>
                         {this.state.showLoader ?
