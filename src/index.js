@@ -1,10 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MainBox from './Components/MainBox';
+import { Main } from './pages';
 import './index.css';
 
-ReactDOM.render(
-    <MainBox/>,
-    document.getElementById('root')
-);
-
+ReactDOM.render(<Main />, document.getElementById('root'));

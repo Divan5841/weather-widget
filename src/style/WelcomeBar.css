@@ -1,0 +1,41 @@
+.welcomeBar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  padding: 10px;
+  background: var(--gray-light);
+
+  box-shadow: 5px 5px 15px 0 var(--gray-dark);
+
+  animation: hideWelcomeBar 0.5s 2.5s linear forwards;
+}
+
+.imgSunBox {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  animation: animImg 3s linear forwards;
+}
+
+img[alt='sun'] {
+  height: 100%;
+}
+
+@keyframes animImg {
+  0% {
+    background: var(--gray-dark);
+  }
+  50% {
+    background: var(--yellow-sun);
+  }
+  100% {
+    background: var(--yellow-sun);
+  }
+}
+
+@keyframes hideWelcomeBar {
+  100% {
+    box-shadow: 0 0 0 0 var(--gray-dark);
+    background: var(--gray-main);
+  }
+}

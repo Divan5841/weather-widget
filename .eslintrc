@@ -1,0 +1,38 @@
+{
+  "parser": "babel-eslint",
+
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "no-shadow": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/require-default-props": 0,
+
+    "import/prefer-default-export": "off",
+
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/label-has-for": "off",
+
+    "react-hooks/exhaustive-deps": "off",
+
+    "react/destructuring-assignment": "off",
+
+    "camelcase": "off",
+
+    "react/prop-types": "off"
+  },
+
+  "extends": ["airbnb-base", "plugin:prettier/recommended"],
+
+  "env": {
+    "browser": true
+  },
+
+  "globals": {
+    "it": false,
+    "expect": false,
+    "describe": false
+  }
+}
