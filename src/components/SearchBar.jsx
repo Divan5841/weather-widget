@@ -17,10 +17,15 @@ export class SearchBar extends React.Component {
 
   handleClick = () => this.props.simpleRequest(this.state.input);
 
+  componentDidMount() {
+    this.inputRef.focus();
+  }
+
   render() {
     return (
       <div className="SearchBar">
         <input
+          ref={inputRef => (this.inputRef = inputRef)}
           type="text"
           placeholder="введите название города"
           className="SearchInput"

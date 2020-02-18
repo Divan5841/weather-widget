@@ -1,60 +1,59 @@
 .loaderBox {
-    width: 100%;
-    height: 50px;
-    display: flex;
+  width: 100%;
+  height: 50px;
+  display: flex;
 }
 
 .imgCloseBox {
-    width: 50px;
-    height: 50px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    background: var(--gray-light);
-    animation: displayBox 1s linear forwards;
+  background: var(--gray-light);
+  animation: displayBox 1s linear forwards;
 
-    cursor: pointer;
-    transition: 1s ease;
+  cursor: pointer;
+  transition: 1s ease;
 }
 
 .imgCloseBox:hover {
-    background: var(--red);
+  background: var(--red);
 }
 
-img[alt="close"] {
-    width: 30px;
+img[alt='close'] {
+  width: 30px;
 }
 
 .loaderDiv {
-    flex-grow: 1;
-    margin-right: 10px;
-    background: var(--gray-light);
-    font-size: 25px;
+  flex-grow: 1;
+  margin-right: 10px;
+  background: var(--gray-light);
+  font-size: 25px;
 
-    animation: displayBox 1s linear forwards;
+  animation: displayBox 1s linear forwards;
 }
 
 .loaderDiv > div {
-    width: 100%;
-    height: 100%;
-    background: var(--yellow-sun);
-    animation: 2s linear 0s infinite loader_div;
+  width: 100%;
+  height: 100%;
+  background: var(--yellow-sun);
+  animation: 2s linear 0s infinite loader_div;
 }
 
 .loaderDiv > p {
-    position: absolute;
-    top: 10px;
-    left: 15px;
+  position: absolute;
+  top: 10px;
+  left: 15px;
 }
 
 @keyframes loader_div {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
-

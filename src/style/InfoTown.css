@@ -1,39 +1,35 @@
 .infoTown {
-    margin-bottom: 10px;
-    animation: displayBox 1s linear forwards;
+  margin-bottom: 10px;
+  animation: displayBox 1s linear forwards;
 }
 
 .containerTown {
-    display: flex;
-    padding-bottom: 5px;
-    border-bottom: var(--gray-dark) 1px solid;
+  display: flex;
+  width: 100%;
+  padding-bottom: 5px;
+  border-bottom: var(--gray-dark) 1px solid;
 }
 
 .containerTown :first-child {
-    flex-grow: 1;
-    margin-right: 15px;
-}
-
-.containerTown :last-child {
-    width: 37px;
+  flex-grow: 1;
+  margin-right: 15px;
 }
 
 .containerInfo {
-    display: flex;
+  display: flex;
 }
 
 .containerInfo > p {
-    font-size: 18px;
-    padding-top: 10px;
+  font-size: 18px;
+  padding-top: 10px;
 }
 
 .containerInfo :first-child {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 .containerInfo :last-child {
-    margin-left: 10px;
-    padding-left: 10px;
-    border-left: var(--gray-dark) 1px solid;
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: var(--gray-dark) 1px solid;
 }
-

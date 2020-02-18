@@ -153,7 +153,8 @@ export class Main extends React.Component {
 
     return (
       <div className="mainBox">
-        {isSearchBarShow && <SearchBar simpleRequest={this.requestByTownName} />}
+        {isSearchBarShow && <SearchBar simpleRequest={this.requestByTownName}
+        />}
         {isLoaderShow && <Loader abortRequest={this.abortRequest} />}
         <Error errorMessage={errorMessage} hideError={this.toggleError} />
         {isInfoBoxShow && <InfoBox data={data} />}

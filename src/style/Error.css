@@ -1,23 +1,20 @@
 .errorBox {
-    width: 100%;
-    height: 50px;
-    display: flex;
+  width: 100%;
+  height: 50px;
+  display: flex;
 }
 
 .errorDiv {
-    flex-grow: 1;
-    margin-right: 10px;
-    background: var(--gray-light);
-    font-size: 25px;
+  flex-grow: 1;
+  margin-right: 10px;
+  background: var(--gray-light);
+  font-size: 25px;
 
-    animation: displayBox 1s linear forwards;
+  animation: displayBox 1s linear forwards;
 }
 
 .errorDiv > p {
-    position: absolute;
-    top: 10px;
-    left: 15px;
+  position: absolute;
+  top: 10px;
+  left: 15px;
 }
-
-
-

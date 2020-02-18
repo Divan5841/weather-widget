@@ -1,17 +1,17 @@
 .containerDay {
-    width: 100%;
-    padding: 0 5px;
-    font-size: 14px;
-    font-weight: 500;
-    border-left: var(--gray-dark) 1px solid;
+  width: 100%;
+  padding: 0 5px;
+  font-size: 14px;
+  font-weight: 500;
+  border-left: var(--gray-dark) 1px solid;
 }
 
 .containerDay :first-child {
-    margin-bottom: 5px;
-    font-size: 20px;
-    font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 img[alt='img'] {
-    margin: 0 auto;
+  margin: 0 auto;
 }
