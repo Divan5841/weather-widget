@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import '../style/InfoTown.css';
 import { getFormattedDate, getTranslatedDescription } from '../utils/helpers';
 
-export const InfoTown = ({ data: { name, temp, desc, sunrise, sunset } }) => {
+const InfoTownComponent = ({ townWeather: { name, temp, desc, sunrise, sunset } }) => {
   const celsiusSymbol = String.fromCharCode(0x00b0);
   const tempFormatted = `${Math.round(temp)}${celsiusSymbol}`;
   const translatedDesc = getTranslatedDescription(desc);
@@ -23,3 +25,9 @@ export const InfoTown = ({ data: { name, temp, desc, sunrise, sunset } }) => {
     </div>
   );
 };
+
+const mapStateToProps = ({ townWeather }) => {
+  return { townWeather };
+};
+
+export const InfoTown = connect(mapStateToProps)(InfoTownComponent);

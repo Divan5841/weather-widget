@@ -1,6 +1,9 @@
 import React from 'react';
-import { getShortTownName } from '../utils/helpers';
+import { connect } from 'react-redux';
+
 import { Error, InfoBox, Loader, SearchBar, WelcomeBar } from '../components';
+import { setData } from '../store/townWeather/actions';
+import { getShortTownName } from '../utils/helpers';
 import '../style/Main.css';
 
 const API_URL = 'https://api.openweathermap.org/data/2.5/forecast/daily';
@@ -12,7 +15,7 @@ const defaultParams = {
   units: 'metric',
 };
 
-export class Main extends React.Component {
+class MainComponent extends React.Component {
   state = {
     isWelcomeBarShow: true,
     isSearchBarShow: false,
@@ -20,24 +23,6 @@ export class Main extends React.Component {
     isInfoBoxShow: false,
     errorMessage: null,
     controller: new AbortController(),
-  };
-
-  setData = ({ city: { name }, list }) => {
-    const data = {
-      name,
-      temp: list[0].temp.day,
-      desc: list[0].weather[0].main,
-      sunrise: list[0].sunrise,
-      sunset: list[0].sunset,
-      week: list.map(({ dt, temp: { min, max }, weather }) => ({
-        date: dt,
-        minTemp: min,
-        maxTemp: max,
-        img: weather[0].icon,
-      })),
-    };
-
-    this.setState({ data });
   };
 
   requestWeather = () => {
@@ -53,7 +38,7 @@ export class Main extends React.Component {
     })
       .then(response => response.json())
       .then(data => {
-        this.setData(data);
+        this.props.setData(data);
 
         this.setState({ isLoaderShow: false, isInfoBoxShow: true, isSearchBarShow: true });
       })
@@ -79,6 +64,7 @@ export class Main extends React.Component {
 
   handleKeyUp = ({ key }) => {
     if (key === 'Escape') {
+      this.abortRequest();
       this.toggleError();
     }
   };
@@ -138,7 +124,6 @@ export class Main extends React.Component {
       isLoaderShow,
       isInfoBoxShow,
       errorMessage,
-      data,
     } = this.state;
 
     if (isWelcomeBarShow) {
@@ -153,12 +138,15 @@ export class Main extends React.Component {
 
     return (
       <div className="mainBox">
-        {isSearchBarShow && <SearchBar simpleRequest={this.requestByTownName}
-        />}
+        {isSearchBarShow && <SearchBar requestByTownName={this.requestByTownName} />}
         {isLoaderShow && <Loader abortRequest={this.abortRequest} />}
         <Error errorMessage={errorMessage} hideError={this.toggleError} />
-        {isInfoBoxShow && <InfoBox data={data} />}
+        {isInfoBoxShow && <InfoBox />}
       </div>
     );
   }
 }
+
+const mapDispatchToProps = { setData };
+
+export const Main = connect(null, mapDispatchToProps)(MainComponent);

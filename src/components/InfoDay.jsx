@@ -1,4 +1,5 @@
 import React from 'react';
+
 import '../style/InfoDay.css';
 import { convertSecToDay, getImageUrl } from '../utils/helpers';
 

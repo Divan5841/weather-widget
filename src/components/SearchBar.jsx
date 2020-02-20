@@ -1,41 +1,47 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import '../style/SearchBar.css';
 import searchGray from '../img/searchGray.png';
+import { handleTownName } from '../store/townWeather/actions';
 
-export class SearchBar extends React.Component {
-  state = {
-    input: '',
-  };
+const SearchBarComponent = ({ inputTownName, handleTownName, requestByTownName }) => {
+  const textInput = React.createRef();
 
-  handleEnterKeyUp = ({ key }) => {
+  const handleChange = ({ target: { value } }) => handleTownName(value);
+
+  const handleClick = () => requestByTownName(inputTownName);
+
+  const handleEnterKeyUp = ({ key }) => {
     if (key === 'Enter') {
-      this.props.simpleRequest(this.state.input);
+      requestByTownName(inputTownName);
     }
   };
+  // componentDidMount() { переписать на хуках
+  //   this.textInput.focus();
+  // }
 
-  handleChange = ({ target: { value } }) => this.setState({ input: value });
-
-  handleClick = () => this.props.simpleRequest(this.state.input);
-
-  componentDidMount() {
-    this.inputRef.focus();
-  }
-
-  render() {
-    return (
-      <div className="SearchBar">
-        <input
-          ref={inputRef => (this.inputRef = inputRef)}
-          type="text"
-          placeholder="введите название города"
-          className="SearchInput"
-          onChange={this.handleChange}
-          onKeyUp={this.handleEnterKeyUp}
-        />
-        <div className="imgSearchBox" onClick={this.handleClick}>
-          <img src={searchGray} alt="search" />
-        </div>
+  return (
+    <div className="SearchBar">
+      <input
+        ref={textInput}
+        type="text"
+        placeholder="введите название города"
+        className="SearchInput"
+        onChange={handleChange}
+        onKeyUp={handleEnterKeyUp}
+      />
+      <div className="imgSearchBox" onClick={handleClick}>
+        <img src={searchGray} alt="search" />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+const mapStateToProps = ({ townWeather: { inputTownName } }) => {
+  return { inputTownName };
+};
+
+const mapDispatchToProps = { handleTownName };
+
+export const SearchBar = connect(mapStateToProps, mapDispatchToProps)(SearchBarComponent);
