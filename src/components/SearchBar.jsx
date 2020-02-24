@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import { connect } from 'react-redux';
 
 import '../style/SearchBar.css';
@@ -6,7 +6,7 @@ import searchGray from '../img/searchGray.png';
 import { handleTownName } from '../store/townWeather/actions';
 
 const SearchBarComponent = ({ inputTownName, handleTownName, requestByTownName }) => {
-  const textInput = React.createRef();
+  const textInput = useRef();
 
   const handleChange = ({ target: { value } }) => handleTownName(value);
 
@@ -17,9 +17,10 @@ const SearchBarComponent = ({ inputTownName, handleTownName, requestByTownName }
       requestByTownName(inputTownName);
     }
   };
-  // componentDidMount() { переписать на хуках
-  //   this.textInput.focus();
-  // }
+
+  useEffect(() => {
+    textInput.current.focus();
+  });
 
   return (
     <div className="SearchBar">

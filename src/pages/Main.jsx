@@ -13,6 +13,7 @@ const defaultParams = {
   mode: 'json',
   appid: API_KEY,
   units: 'metric',
+  lang: 'ru',
 };
 
 class MainComponent extends React.Component {

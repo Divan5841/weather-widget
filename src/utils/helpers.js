@@ -6,23 +6,23 @@ export const getFormattedDate = sec => {
   return minutes < 9 ? `${hours}:0${minutes}` : `${hours}:${minutes}`;
 };
 
-export const getTranslatedDescription = description => {
-  const weatherDescriptionDictionary = {
-    clear: 'Чистое небо',
-    'few clouds': 'Мало облаков',
-    'scattered clouds': 'Рассеянные облака',
-    'broken clouds': 'Облачность',
-    'shower rain': 'Град',
-    rain: 'Дождь',
-    thunderstorm: 'Гроза',
-    snow: 'Снег',
-    mist: 'Туман',
-    clouds: 'Облачно',
-  };
-  const descriptionTranslated = weatherDescriptionDictionary[description.toLowerCase()];
-
-  return descriptionTranslated || description;
-};
+// export const getTranslatedDescription = description => {
+//   const weatherDescriptionDictionary = {
+//     clear: 'Чистое небо',
+//     'few clouds': 'Мало облаков',
+//     'scattered clouds': 'Рассеянные облака',
+//     'broken clouds': 'Облачность',
+//     'shower rain': 'Град',
+//     rain: 'Дождь',
+//     thunderstorm: 'Гроза',
+//     snow: 'Снег',
+//     mist: 'Туман',
+//     clouds: 'Облачно',
+//   };
+//   const descriptionTranslated = weatherDescriptionDictionary[description.toLowerCase()];
+//
+//   return descriptionTranslated || description;
+// };
 
 export const convertSecToDay = sec => {
   const daysWeek = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];

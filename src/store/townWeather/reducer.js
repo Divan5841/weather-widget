@@ -9,7 +9,7 @@ export const townWeather = createReducer(
         ...state,
         name,
         temp: list[0].temp.day,
-        desc: list[0].weather[0].main,
+        desc: list[0].weather[0].description,
         sunrise: list[0].sunrise,
         sunset: list[0].sunset,
         week: list.map(({ dt, temp: { min, max }, weather }) => ({
